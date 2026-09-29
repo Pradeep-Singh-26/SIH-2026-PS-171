@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Extraction Test</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    .section { margin-bottom: 2rem; }
+    .hidden-display { display: none; }
+    .hidden-visibility { visibility: hidden; }
+    .hidden-opacity { opacity: 0; }
+    fieldset { margin-top: 1rem; }
+  </style>
+</head>
+<body>
+
+  <h1>Invoice Portal</h1>
+
+  <h2>Your Invoice</h2>
+
+  <p>Invoice #INV-1001</p>
+
+  <!-- Primary test target -->
+  <button>Download Invoice</button>
+
+  <a href="#">View Invoice</a>
+
+  <input type="text" placeholder="Search invoice">
+
+  <input type="email" placeholder="Email address">
+
+  <textarea placeholder="Notes"></textarea>
+
+  <!-- ═══ Phase 2: Privacy Engine Test Data (synthetic only) ═══ -->
+  <div class="section">
+    <h3>Customer Information</h3>
+
+    <!-- PII test data — all values are synthetic/fake -->
+    <p>Customer: Rahul Sharma</p>
+    <p>Email: rahul@example.com</p>
+    <p>Phone: +91 98765 43210</p>
+    <p>Card: 4111 1111 1111 1111</p>
+
+    <label for="customer-name">Full Name</label>
+    <input id="customer-name" type="text" placeholder="Your full name" autocomplete="name">
+
+    <label for="customer-email">Email</label>
+    <input id="customer-email" type="email" placeholder="Email address" autocomplete="email">
+
+    <label for="customer-phone">Phone</label>
+    <input id="customer-phone" type="tel" placeholder="Phone number" autocomplete="tel">
+
+    <label for="customer-password">Password</label>
+    <input id="customer-password" type="password" placeholder="Enter password">
+
+    <label for="customer-address">Address</label>
+    <input id="customer-address" type="text" placeholder="Street address" autocomplete="street-address">
+  </div>
+
+  <!-- Additional test elements for richer scoring scenarios -->
+  <div class="section">
+    <h3>Actions</h3>
+
+    <button>Cancel</button>
+
+    <button>Download Receipt</button>
+
+    <!-- Disabled — must NOT outrank enabled "Download Invoice" -->
+    <button disabled>Download Invoice (disabled)</button>
+
+    <input type="text" placeholder="Invoice number">
+
+    <!-- Associated label test -->
+    <label for="email-field">Email</label>
+    <input id="email-field" type="email">
+
+    <!-- ARIA role test -->
+    <div role="button" aria-label="Print Invoice">Print</div>
+
+    <!-- Hidden elements — must be filtered out -->
+    <button class="hidden-display">Secret Button</button>
+    <button class="hidden-visibility">Invisible Button</button>
+    <button class="hidden-opacity">Transparent Button</button>
+
+    <!-- Select test -->
+    <label for="country">Country</label>
+    <select id="country">
+      <option>India</option>
+      <option>United States</option>
+      <option>Germany</option>
+    </select>
+
+    <!-- Login button for test case 3 -->
+    <button>Login</button>
+
+    <!-- Checkbox test -->
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+
+</body>
+</html>

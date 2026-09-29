@@ -1,0 +1,19 @@
+{
+  "name": "extension",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "bun build src/content.ts --outfile dist/content.js --target browser --format iife",
+    "test:unit": "bun test src/context/ContextSelector.test.ts src/privacy/__tests__/",
+    "test:privacy": "bun test src/privacy/__tests__/",
+    "test": "bun test src/"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "vitest": "^5.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
